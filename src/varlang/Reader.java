@@ -1,6 +1,7 @@
 package varlang;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
@@ -37,7 +38,7 @@ public class Reader {
 		return runFile(programText);
 	}
 
-	protected String getProgramDirectory() { return "build/varlang/examples/"; }
+	protected String getProgramDirectory() { return "build"+File.separator+"varlang"+File.separator+"examples"+File.separator; }
 	protected String runFile(String programText) throws IOException {
 		if(programText.startsWith("run ")){
 			programText = readFile(getProgramDirectory() + programText.substring(4));
