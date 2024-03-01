@@ -5,6 +5,8 @@ import java.util.Arrays;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
+import java.util.HashSet;
 
 import varlang.AST.AddExp;
 import varlang.AST.NumExp;
