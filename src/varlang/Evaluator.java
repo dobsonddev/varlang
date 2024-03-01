@@ -114,6 +114,12 @@ public class Evaluator implements Visitor<Value> {
 		List<String> names = e.names();
 		List<Exp> value_exps = e.value_exps();
 		List<Value> values = new ArrayList<Value>(value_exps.size());
+
+		// Check for redefinition of variables in the same let expression
+		Set<String> uniqueNames = new HashSet<>(names);
+		if (uniqueNames.size() < names.size()) {
+			throw new Env.DynamicError("Redefinition of a variable within the same let expression is not allowed.");
+		}
 		
 		for(Exp exp : value_exps) 
 			values.add((Value)exp.accept(this, env));
