@@ -38,3 +38,22 @@ public interface Env {
 		}
 	}
 }
+	static public class ExtendEnvList implements Env {
+		private Env _saved_env; 
+		private List<String> _vars; 
+		private List<Value> _vals; 
+
+		public ExtendEnvList(Env saved_env, List<String> vars, List<Value> vals){
+			_saved_env = saved_env;
+			_vars = vars;
+			_vals = vals;
+		}
+
+		public Value get (String search_var) {
+			for (int i = 0; i < _vars.size(); i++) {
+				if (search_var.equals(_vars.get(i)))
+					return _vals.get(i);
+			}
+			return _saved_env.get(search_var);
+		}
+	}
