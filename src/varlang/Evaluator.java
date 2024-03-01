@@ -18,6 +18,27 @@ import varlang.Env.ExtendEnv;
 import varlang.Env.ExtendEnvList;
 
 public class Evaluator implements Visitor<Value> {
+
+	public void testEnvMethods() {
+		Env emptyEnv = new EmptyEnv();
+		assert emptyEnv.isEmpty() : "EmptyEnv should be empty";
+		assert !emptyEnv.hasBinding("x") : "EmptyEnv should not have bindings";
+
+		Value val1 = new NumVal(1);
+		Env extendEnv = new ExtendEnv(emptyEnv, "x", val1);
+		assert !extendEnv.isEmpty() : "ExtendEnv should not be empty";
+		assert extendEnv.hasBinding("x") : "ExtendEnv should have binding for 'x'";
+		assert !extendEnv.hasBinding("y") : "ExtendEnv should not have binding for 'y'";
+
+		List<String> vars = Arrays.asList("x", "y");
+		List<Value> vals = Arrays.asList(val1, new NumVal(2));
+		Env extendEnvList = new ExtendEnvList(emptyEnv, vars, vals);
+		assert !extendEnvList.isEmpty() : "ExtendEnvList should not be empty";
+		assert extendEnvList.hasBinding("x") : "ExtendEnvList should have binding for 'x'";
+		assert extendEnvList.hasBinding("y") : "ExtendEnvList should have binding for 'y'";
+		assert !extendEnvList.hasBinding("z") : "ExtendEnvList should not have binding for 'z'";
+	}
+
 	
 	Value valueOf(Program p) {
 		Env env = new EmptyEnv();
