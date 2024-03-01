@@ -20,7 +20,7 @@ import varlang.Env.ExtendEnvList;
 
 public class Evaluator implements Visitor<Value> {
 
-	public void testEnvMethods() {
+	public void testEnvProjectMethods() {
 		Env emptyEnv = new EmptyEnv();
 		assert emptyEnv.isEmpty() : "EmptyEnv should be empty";
 		assert !emptyEnv.hasBinding("x") : "EmptyEnv should not have bindings";
