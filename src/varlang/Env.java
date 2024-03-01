@@ -19,6 +19,14 @@ public interface Env {
 		}
 	}
 
+	@SuppressWarnings("serial")
+	static public class DynamicError extends RuntimeException {
+		DynamicError(String message){
+			super(message);
+		}
+	}
+
+
 	static public class EmptyEnv implements Env {
 		public boolean isEmpty() {
 			return true;
