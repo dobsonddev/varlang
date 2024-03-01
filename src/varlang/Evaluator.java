@@ -1,6 +1,7 @@
 package varlang;
 import static varlang.AST.*;
 import static varlang.Value.*;
+import java.util.Arrays;
 
 import java.util.List;
 import java.util.ArrayList;
