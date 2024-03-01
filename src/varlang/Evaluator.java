@@ -95,9 +95,7 @@ public class Evaluator implements Visitor<Value> {
 		for(Exp exp : value_exps) 
 			values.add((Value)exp.accept(this, env));
 		
-		Env new_env = env;
-		for (int i = 0; i < names.size(); i++)
-			new_env = new ExtendEnv(new_env, names.get(i), values.get(i));
+		Env new_env = new ExtendEnvList(env, names, values);
 
 		return (Value) e.body().accept(this, new_env);		
 	}	
