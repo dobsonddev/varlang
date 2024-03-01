@@ -15,6 +15,7 @@ import varlang.AST.VarExp;
 import varlang.AST.Visitor;
 import varlang.Env.EmptyEnv;
 import varlang.Env.ExtendEnv;
+import varlang.Env.ExtendEnvList;
 
 public class Evaluator implements Visitor<Value> {
 	
