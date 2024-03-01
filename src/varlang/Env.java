@@ -1,4 +1,5 @@
 package varlang;
+import java.util.List;
 
 /**
  * Representation of an environment, which maps variables to values.
