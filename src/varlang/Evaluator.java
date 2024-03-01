@@ -20,6 +20,12 @@ import varlang.Env.ExtendEnvList;
 
 public class Evaluator implements Visitor<Value> {
 
+   public static void main(String[] args) {
+       Evaluator evaluator = new Evaluator();
+       evaluator.testEnvProjectMethods();
+       System.out.println("All environment tests passed!");
+   }
+
 	public void testEnvProjectMethods() {
 		Env emptyEnv = new EmptyEnv();
 		assert emptyEnv.isEmpty() : "EmptyEnv should be empty";
