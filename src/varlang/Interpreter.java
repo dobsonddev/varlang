@@ -17,6 +17,9 @@ public class Interpreter {
 		System.out.println("Type a program to evaluate and press the enter key," + 
 							" e.g. (let ((a 3) (b 100) (c 84) (d 279) (e 277)) (+ (* a b) (/ c (- d e)))) \n" + 
 							"Press Ctrl + C to exit.");
+		Evaluator evaluator = new Evaluator();
+		evaluator.testEnvProjectMethods();
+		System.out.println("All environment tests passed!");
 		Reader reader = new Reader();
 		Evaluator eval = new Evaluator();
 		Printer printer = new Printer();
