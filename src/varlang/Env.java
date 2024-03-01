@@ -37,7 +37,6 @@ public interface Env {
 			return _saved_env.get(search_var);
 		}
 	}
-}
 	static public class ExtendEnvList implements Env {
 		private Env _saved_env; 
 		private List<String> _vars; 
@@ -57,3 +56,4 @@ public interface Env {
 			return _saved_env.get(search_var);
 		}
 	}
+}
