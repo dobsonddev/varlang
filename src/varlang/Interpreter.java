@@ -12,6 +12,20 @@ import varlang.AST.Program;
  * @author hridesh
  *
  */
+
+//4.7.1 (Env.java - ExtendEnvList class)
+//(let ((a 1) (b 2)) (+ a b)) - multiple var/val pairs allowed in a single expression
+//(let ((x 1)) (let ((y 2)) (let ((z 3)) (+ x y z)))) - that plus nested lets/assignments working due to nested, local scoping
+
+//4.10.2 (Evaluator.java - Evaluator method, testEnvProjectMethods())
+//See terminal - "All environment tests passed"
+
+//4.10.6 (Env.java - Created DynamicError, Evaluator.java - added same-scope/env reassignment checking)
+//(let ((a 3) (a 4)) a) - NOT ALLOWED (DYNAMIC ERROR), because redefinition within the same scope/env is not allowed bc of func lang characteristics - like immutability.
+//(let ((a 3)) (let ((a 4)) a)) - ALLOWED, because redefinition occurs within a nested let, which creates its own local/inner scope/env
+
+
+
 public class Interpreter {
 	public static void main(String[] args) {
 		System.out.println("Type a program to evaluate and press the enter key," + 
